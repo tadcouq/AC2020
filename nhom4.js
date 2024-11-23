@@ -46,6 +46,7 @@ let ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
 scene.add(ambientLight);
 
 //   - Mặt đất
+/*
 const ground = new THREE.Mesh(
   new THREE.PlaneGeometry(800, 800),
   new THREE.MeshStandardMaterial({ color: 0x808080 }) // màu xám
@@ -53,13 +54,18 @@ const ground = new THREE.Mesh(
 ground.rotation.x = -Math.PI / 2;
 ground.receiveShadow = true;
 scene.add(ground);
+*/
 
 //    - Sương mù
 // scene.fog = new THREE.Fog(0x000000, 1, 500);
+
 //    - Âm thanh (bổ sung sau)
 
+//    - Skybox (bổ sung sau)
+
 // ** 3. Đối tượng trong không gian
-// Test
+// Test donut
+/*
 const torus = new THREE.Mesh(
   new THREE.TorusGeometry(10, 3, 16, 100),
   new THREE.MeshStandardMaterial({ color: 0xff6347 })
@@ -67,7 +73,7 @@ const torus = new THREE.Mesh(
 torus.position.set(0, 0, 0);
 torus.rotation.set(0, 0, 0);
 scene.add(torus);
-
+*/
 //    - Map
 
 const manager = new THREE.LoadingManager();
@@ -76,8 +82,8 @@ manager.onProgress = function ( item, loaded, total ) {
 };
 
 const loader = new FBXLoader(manager);
-loader.load( './3D/hnoi_low_poly.fbx', function ( object ) {
-  object.position.set(0, 0, 0);
+loader.load( './3D/cv_hanoi_circuit.fbx', function ( object ) {
+  object.position.set(0, 0, 3);
   object.rotation.set(0, 0, 0);
   object.scale.set(0.01, 0.01, 0.01);
   object.traverse( function ( child ) {
