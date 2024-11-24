@@ -2,7 +2,8 @@ import './style.css';
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
 // ** 1. Chung
 
@@ -42,8 +43,12 @@ controls.update();
 
 //   - Light (nhớ sửa bổ sung)
 // test thì để light nhẹ toàn bộ trước đã
-let ambientLight = new THREE.AmbientLight(0xffffff, 0.1); 
-scene.add(ambientLight);
+const ambientLight = new THREE.AmbientLight( 0xffffff, 0.1 );
+scene.add( ambientLight );
+
+const DirectionalLight = new THREE.DirectionalLight( 0xffffff, 1.00 );
+DirectionalLight.position.set( 3.524, 10.516, 10 );
+scene.add( DirectionalLight );
 
 //   - Mặt đất
 /*
@@ -74,35 +79,45 @@ torus.position.set(0, 0, 0);
 torus.rotation.set(0, 0, 0);
 scene.add(torus);
 */
-//    - Map
 
+//    - Map GLTF
 const manager = new THREE.LoadingManager();
 manager.onProgress = function ( item, loaded, total ) {
   console.log( item, loaded, total );
 };
 
-const loader = new FBXLoader(manager);
-loader.load( './3D/cv_hanoi_circuit.fbx', function ( object ) {
-  object.position.set(0, 0, 3);
-  object.rotation.set(0, 0, 0);
-  object.scale.set(0.01, 0.01, 0.01);
-  object.traverse( function ( child ) {
-    if ( child.isMesh ) {
-      child.castShadow = true;
-      child.receiveShadow = true;
-    }
-  } );
-  scene.add( object );
-});
+const loader = new GLTFLoader(manager);
 
+// DRACOLOader tăng tốc độ load model bằng cách nén dữ liệu mesh
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath( '/examples/js/libs/draco/' );
+loader.setDRACOLoader( dracoLoader );
 
+loader.load(
+  './asset/3D/hanoi_circuit.glb',
+
+  function ( gltf ) {
+    const model = gltf.scene;
+    model.scale.set(1, 1, 1);
+    model.position.set(0, 0, 0);
+    scene.add(model);
+  },
+
+  function ( xhr ) {
+    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+  },
+
+  function ( error ) {
+    console.log( 'An error happened, check the code or the fuckin 3D again' );
+  }
+);
 
 function animate() {
-  requestAnimationFrame(animate)
+  requestAnimationFrame(animate);
 
-  controls.update()
+  controls.update();
 
-  render()
+  render();
 };
 
 function render() {

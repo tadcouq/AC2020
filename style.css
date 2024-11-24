@@ -2,6 +2,11 @@ canvas{
   position: fixed;
 }
 
+body {
+  margin: 0;
+  background-color: #bdc3c7; /*grey, yay no more fakin flashbang firefox*/
+}
+
 /* The side navigation menu */
 .sidenav {
   height: 100%;
