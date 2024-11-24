@@ -108,7 +108,7 @@ loader.load(
   },
 
   function ( error ) {
-    console.log( 'An error happened, check the code or the fuckin 3D again' );
+    console.error( 'An error happened, check the code or the fuckin 3D again' );
   }
 );
 
