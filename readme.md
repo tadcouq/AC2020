@@ -14,4 +14,8 @@ T.A: Mạc Thị Ngọc Ánh, Dương Ngọc Thắng
 ## Project
 Phân công công việc:
 
-Nguồn Asset sử dụng: 
+Nguồn Asset sử dụng:
+- Maps
+- "Scuderia Ferrari F1 SF23 2023" (https://skfb.ly/oRV79) by Redgrund is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- "Aston Martin F1 AMR23 2023" (https://skfb.ly/oSVBL) by Redgrund is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- "Mercedes AMG Petronas  W14 2023" (https://skfb.ly/oQK7v) by Redgrund is licensed under CC Attribution-NonCommercial-NoDerivs (http://creativecommons.org/licenses/by-nc-nd/4.0/).
