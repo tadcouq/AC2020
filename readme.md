@@ -38,9 +38,9 @@ Sự cho phép được áp dụng cho việc “sử dụng hợp lý” nhằm
 Sử dụng hợp lý là việc được pháp luật về bản quyền cho phép trong những trường hợp mà nếu không, có thể bị coi là vi phạm. Mọi quyền và tín dụng thuộc về các chủ sở hữu hợp pháp. Không có hành vi vi phạm bản quyền nào được cố ý thực hiện.
 
 ## (●'◡'●)
-AC2020 - Computer Graphic in 2D and 3D images
-BTL nhóm 4, mã lớp 155466, kỳ học 20241
-Hanoi University of Science and Technology (HUST) 
+AC2020 - Computer Graphic in 2D and 3D images <br>
+BTL nhóm 4, mã lớp 155466, kỳ học 20241 <br>
+Hanoi University of Science and Technology (HUST) <br>
 Faculty of Education, with MICA Institute - School of Electrical and Electronic Engineering
 
 2024 @hust_lin.all.day | @tadcouq._
