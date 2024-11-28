@@ -13,8 +13,15 @@ T.A: Mạc Thị Ngọc Ánh, Dương Ngọc Thắng
 
 ## Project
 Phân công công việc:
+Chia ra thành 2 team nhỏ:
+Team 3D:
+- Hải: Xử lý convert maps từ file game về file 3D và texture.
+- Hưng: Tạo thêm path racing line, setup onboards camera và animation cho model xe.
+Team 3JS:
+- Tùng: Setup camera, môi trường, lighting.
+- Đạt: Hoàn thiện các chức năng và kết nối các camera, setup public lên main web
 
-Nguồn Asset sử dụng:
+## Nguồn Asset sử dụng:
 - 2020 Vinfast Vietnam GP by [LFT Tracks](https://www.facebook.com/LFTTracks), AIW & GDB done by Marco Dakic. Free to use under [guide](https://www.facebook.com/share/p/1M2Jwk5oF5/). All rights reserved.
 - All the cars models by [Redgrund](https://sketchfab.com/redgrund) is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
 - The F1 FORMULA 1 logo, F1 logo, FORMULA 1, F1, FIA FORMULA ONE WORLD CHAMPIONSHIP, GRAND PRIX and related marks are trademarks of Formula One Licensing BV, a Formula 1 company. [© 2003-2024 Formula One World Championship Limited](http://www.formula1.com/)

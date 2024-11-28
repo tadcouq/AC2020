@@ -41,7 +41,7 @@ controls.update();
 
 // ** 2. Khung hình
 
-//   - Light (nhớ sửa bổ sung)
+//   - Light
 // test thì để light nhẹ toàn bộ trước đã
 const ambientLight = new THREE.AmbientLight( 0xffffff, 0.1 );
 scene.add( ambientLight );
@@ -53,10 +53,11 @@ scene.add( DirectionalLight );
 //   - Mặt đất
 /*
 const ground = new THREE.Mesh(
-  new THREE.PlaneGeometry(800, 800),
+  new THREE.PlaneGeometry(500, 500),
   new THREE.MeshStandardMaterial({ color: 0x808080 }) // màu xám
 );
 ground.rotation.x = -Math.PI / 2;
+ground.position.y = -1;
 ground.receiveShadow = true;
 scene.add(ground);
 */
@@ -88,7 +89,7 @@ manager.onProgress = function ( item, loaded, total ) {
 
 const loader = new GLTFLoader(manager);
 
-// DRACOLOader tăng tốc độ load model bằng cách nén dữ liệu mesh
+// DRACOLoader tăng tốc độ load model bằng cách nén dữ liệu mesh
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath( '/examples/js/libs/draco/' );
 loader.setDRACOLoader( dracoLoader );
