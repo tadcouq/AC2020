@@ -13,10 +13,10 @@ T.A: Mạc Thị Ngọc Ánh, Dương Ngọc Thắng
 
 ## Project
 Phân công công việc:
-Chia ra thành 2 team nhỏ:
+Chia ra thành 2 team nhỏ:<br>
 Team 3D:
 - Hải: Xử lý convert maps từ file game về file 3D và texture.
-- Hưng: Tạo thêm path racing line, setup onboards camera và animation cho model xe.
+- Hưng: Tạo thêm path racing line, setup onboards camera và animation cho model xe.<br>
 Team 3JS:
 - Tùng: Setup camera, môi trường, lighting.
 - Đạt: Hoàn thiện các chức năng và kết nối các camera, setup public lên main web
