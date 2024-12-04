@@ -51,16 +51,16 @@ DirectionalLight.position.set( 3.524, 10.516, 10 );
 scene.add( DirectionalLight );
 
 //   - Mặt đất
-/*
+
 const ground = new THREE.Mesh(
   new THREE.PlaneGeometry(500, 500),
   new THREE.MeshStandardMaterial({ color: 0x808080 }) // màu xám
 );
 ground.rotation.x = -Math.PI / 2;
-ground.position.y = -1;
+ground.position.y = 0;
 ground.receiveShadow = true;
 scene.add(ground);
-*/
+
 
 //    - Sương mù
 // scene.fog = new THREE.Fog(0x000000, 1, 500);
@@ -90,6 +90,7 @@ manager.onProgress = function ( item, loaded, total ) {
 const loader = new GLTFLoader(manager);
 
 // DRACOLoader tăng tốc độ load model bằng cách nén dữ liệu mesh
+
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath( '/examples/js/libs/draco/' );
 loader.setDRACOLoader( dracoLoader );
