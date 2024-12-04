@@ -17,9 +17,8 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.setZ(30);
+camera.position.set(5,5,5);
 camera.lookAt(0, 2, 0);
-
 
 //    - Renderer
 const renderer = new THREE.WebGLRenderer({
@@ -28,9 +27,8 @@ const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),});
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-// thêm mắm thêm muối
-/* renderer.toneMappingExposure = 2.3;
-renderer.shadowMap.enabled = false; */              // đoạn này tắt tạm test thôi
+renderer.toneMappingExposure = 2.3;
+renderer.shadowMap.enabled = true;            // đoạn này tắt tạm test thôi
 document.body.appendChild(renderer.domElement);
 
 //    - OrbitControls
@@ -43,15 +41,14 @@ controls.update();
 
 //   - Light
 // test thì để light nhẹ toàn bộ trước đã
-const ambientLight = new THREE.AmbientLight( 0xffffff, 0.1 );
+const ambientLight = new THREE.AmbientLight( 0xffffff, 1 );
 scene.add( ambientLight );
 
-const DirectionalLight = new THREE.DirectionalLight( 0xffffff, 1.00 );
+const DirectionalLight = new THREE.DirectionalLight( 0xffffff, 5.00 );
 DirectionalLight.position.set( 3.524, 10.516, 10 );
 scene.add( DirectionalLight );
 
 //   - Mặt đất
-/*
 const ground = new THREE.Mesh(
   new THREE.PlaneGeometry(500, 500),
   new THREE.MeshStandardMaterial({ color: 0x808080 }) // màu xám
@@ -60,7 +57,7 @@ ground.rotation.x = -Math.PI / 2;
 ground.position.y = -1;
 ground.receiveShadow = true;
 scene.add(ground);
-*/
+
 
 //    - Sương mù
 // scene.fog = new THREE.Fog(0x000000, 1, 500);
@@ -82,6 +79,7 @@ scene.add(torus);
 */
 
 //    - Map GLTF
+/* Note: Sau khi chỉnh sửa gì file map 3D, baked toàn bộ những cái cần render ra .obj xong đẩy lên 3dviewer.net convert về .glb, để .gltf hỏng hết */
 const manager = new THREE.LoadingManager();
 manager.onProgress = function ( item, loaded, total ) {
   console.log( item, loaded, total );
