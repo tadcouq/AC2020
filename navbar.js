@@ -13,10 +13,10 @@ function closeNav() {
   console.log("closeNav called");
   var navElement = document.getElementById("nav");
   if (navElement) {
-    console.log("nav element found");
+    console.error("nav element found");
     navElement.style.width = "0";
   } else {
-    console.log("nav element not found");
+    console.error("nav element not found");
   }
 };
 
