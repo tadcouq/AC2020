@@ -5,7 +5,7 @@ function openNav() {
     console.log("nav element found");
     navElement.style.width = "20%";
   } else {
-    console.log("nav element not found");
+    console.error("nav element not found");
   }
 };
 
