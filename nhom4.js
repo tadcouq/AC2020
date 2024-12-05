@@ -55,17 +55,8 @@ const ground = new THREE.Mesh(
   new THREE.MeshStandardMaterial({ color: 0x808080 }) // màu xám
 );
 ground.rotation.x = -Math.PI / 2;
-ground.position.y = 0;
-ground.receiveShadow = true;
+ground.position.y = -0.5;
 scene.add(ground);
-
-
-//    - Sương mù
-// scene.fog = new THREE.Fog(0x000000, 1, 500);
-
-//    - Âm thanh (bổ sung sau)
-
-//    - Skybox (bổ sung sau)
 
 // ** 3. Đối tượng trong không gian
 // Test donut
@@ -112,6 +103,31 @@ loader.load(
     console.error( 'An error happened, check the code or the fuckin 3D again' );
   }
 );
+
+// Ngày đêm
+let isDay = true;
+const dground = new THREE.CubeTextureLoader()
+  .setPath('./tex/Day_skybox/')
+  .load([
+    'px.png',
+    'nx.png',
+    'py.png',
+    'ny.png',
+    'pz.png',
+    'nz.png'
+  ]);
+scene.background = dground; // temp 
+
+function toggleDayNight() {
+  isDay = !isDay;
+  if (isDay) {
+    scene.background = dground;
+    scene.fog = new THREE.Fog(0xaed6f1, 0.001, 500);
+  } else {
+    scene.background = nbackground;
+    scene.fog = new THREE.Fog(0x000000, 0.001, 500);
+  }
+};
 
 function animate() {
   requestAnimationFrame(animate);
