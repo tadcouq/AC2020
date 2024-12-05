@@ -41,7 +41,7 @@ controls.update();
 
 //   - Light
 // test thì để light nhẹ toàn bộ trước đã
-const ambientLight = new THREE.AmbientLight( 0xffffff, 1 );
+const ambientLight = new THREE.AmbientLight( 0x404040 , 20 );
 scene.add( ambientLight );
 
 const DirectionalLight = new THREE.DirectionalLight( 0xffffff, 5.00 );
