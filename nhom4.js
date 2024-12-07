@@ -100,7 +100,48 @@ loader.load(
   },
 
   function ( error ) {
-    console.error( 'An error happened, check the code or the fuckin 3D again' );
+    console.error( 'maps: An error happened, check the code or the fuckin 3D again' );
+  }
+);
+
+// load xe vào, cho chạy animation loop khi hết, call 2 camera từ model này
+
+const rb19 = new GLTFLoader( manager );
+const rb19DracoLoader = new DRACOLoader();
+rb19DracoLoader.setDecoderPath( '/examples/js/libs/draco/' );
+rb19.setDRACOLoader( rb19DracoLoader );
+
+let mixer;
+
+rb19.load(
+  './asset/3D/rb19.glb',
+
+  function ( gltf ) {
+    const model = gltf.scene;
+
+    const animation = gltf.animations;
+    if (animation && animation.length){
+      mixer = new THREE.AnimationMixer(model);
+      animation.forEach((clip) => {
+        mixer.clipAction(clip).play();
+      });
+    }
+
+    const rb19Cameras = gltf.cameras;
+    if (rb19Cameras && rb19Cameras.length) {
+      const rb19Cam = rb19Cameras[0];
+      scene.add(rb19Cam);
+    }
+
+    scene.add(model);
+  },
+
+  function ( xhr ) {
+    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+  },
+
+  function ( error ) {
+    console.error( 'rb19: An error happened, check the code or the fuckin 3D again' );
   }
 );
 
@@ -131,12 +172,12 @@ function toggleDayNight() {
 
 function animate() {
   requestAnimationFrame(animate);
-
+  if (mixer) mixer.update(clock.getDelta());
   controls.update();
-
   render();
 };
 
+const clock = new THREE.Clock();
 function render() {
   renderer.render( scene, camera );
 };
