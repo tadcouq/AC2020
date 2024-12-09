@@ -10,16 +10,6 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 //    - Scene
 const scene = new THREE.Scene();
 
-//    - Camera
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
-camera.position.set(5,5,5);
-camera.lookAt(0, 2, 0);
-
 //    - Renderer
 const renderer = new THREE.WebGLRenderer({
   alpha: true,
@@ -28,14 +18,25 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.toneMappingExposure = 2.3;
-renderer.shadowMap.enabled = true;            // đoạn này tắt tạm test thôi
+renderer.shadowMap.enabled = true;            // test thì để true
 document.body.appendChild(renderer.domElement);
+
+//    - Camera orbit
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
+camera.position.set(5, 5, 5);
+camera.lookAt(0, 2, 0);
 
 //    - OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
-controls.target.set(0, 1, 0);
+controls.target.set(0, 2, 0);
 controls.update();
+
 
 // ** 2. Khung hình
 
@@ -78,9 +79,6 @@ manager.onProgress = function ( item, loaded, total ) {
 };
 
 const loader = new GLTFLoader(manager);
-
-// DRACOLoader tăng tốc độ load model bằng cách nén dữ liệu mesh
-
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath( '/examples/js/libs/draco/' );
 loader.setDRACOLoader( dracoLoader );
@@ -113,6 +111,7 @@ rb19.setDRACOLoader( rb19DracoLoader );
 
 let mixer;
 
+
 rb19.load(
   './asset/3D/rb19.glb',
 
@@ -126,13 +125,7 @@ rb19.load(
         mixer.clipAction(clip).play();
       });
     }
-
-    const rb19Cameras = gltf.cameras;
-    if (rb19Cameras && rb19Cameras.length) {
-      const rb19Cam = rb19Cameras[0];
-      scene.add(rb19Cam);
-    }
-
+    
     scene.add(model);
   },
 
@@ -145,8 +138,8 @@ rb19.load(
   }
 );
 
-// Ngày đêm
-let isDay = true;
+// Ngày đêm (tạm thời bỏ, lag quá)
+//let isDay = true;
 const dground = new THREE.CubeTextureLoader()
   .setPath('./tex/Day_skybox/')
   .load([
@@ -159,6 +152,7 @@ const dground = new THREE.CubeTextureLoader()
   ]);
 scene.background = dground; // temp 
 
+/*
 function toggleDayNight() {
   isDay = !isDay;
   if (isDay) {
@@ -169,6 +163,7 @@ function toggleDayNight() {
     scene.fog = new THREE.Fog(0x000000, 0.001, 500);
   }
 };
+*/
 
 function animate() {
   requestAnimationFrame(animate);
