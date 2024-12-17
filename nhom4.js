@@ -37,7 +37,6 @@ controls.enableDamping = true;
 controls.target.set(0, 2, 0);
 controls.update();
 
-
 // ** 2. Khung hình
 
 //   - Light
@@ -55,7 +54,7 @@ const ground = new THREE.Mesh(
   new THREE.PlaneGeometry(500, 500),
   new THREE.MeshStandardMaterial({ color: 0x808080 }) // màu xám
 );
-ground.rotation.x = -Math.PI / 2;
+ground.rotation.x = Math.PI / 2;
 ground.position.y = -0.5;
 scene.add(ground);
 
@@ -125,6 +124,9 @@ rb19.load(
         mixer.clipAction(clip).play();
       });
     }
+    gltf.cameras.forEach((cam, index) => {
+      cameras[`rb19_${index+1}`] = cam;
+    });
     
     scene.add(model);
   },
@@ -137,6 +139,14 @@ rb19.load(
     console.error( 'rb19: An error happened, check the code or the fuckin 3D again' );
   }
 );
+
+// Tổng hợp camera
+const cameras = {
+  default: camera,
+  // các cam model sẽ add vào đây
+};
+
+let currentCamera = camera;
 
 // Ngày đêm (tạm thời bỏ, lag quá)
 //let isDay = true;
@@ -165,16 +175,26 @@ function toggleDayNight() {
 };
 */
 
+// switch camera
+document.getElementById('cameraSelect').addEventListener('change', (event) => {
+  const selectedCamera = cameras[event.target.value];
+  if (selectedCamera) {
+    currentCamera = selectedCamera;
+  }
+});
+
 function animate() {
   requestAnimationFrame(animate);
-  if (mixer) mixer.update(clock.getDelta());
-  controls.update();
+  if (mixer) {
+    mixer.update(clock.getDelta())
+  };
+//  controls.update();
   render();
 };
 
 const clock = new THREE.Clock();
 function render() {
-  renderer.render( scene, camera );
+  renderer.render( scene, currentCamera );
 };
 
 animate();
