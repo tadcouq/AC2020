@@ -1,4 +1,4 @@
-# AC2020 - Nhóm 4
+# AC2020
 ## Mã lớp 155466
 GVHD: Nguyễn Đình Văn <br>
 T.A: Mạc Thị Ngọc Ánh, Dương Ngọc Thắng
