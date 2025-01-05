@@ -3,24 +3,9 @@
 GVHD: Nguyễn Đình Văn <br>
 T.A: Mạc Thị Ngọc Ánh, Dương Ngọc Thắng
 
+## Tại sao có 2 bản cuối kỳ vậy?
+Đây là 1 project đã đc viết từ trước nhưng để phù hợp với cấu trúc nộp bài theo yêu cầu giáo viên, thì đây sẽ là phiên bản đầu tiên của nó với đủ chỗ để trình bày credit cho cả các tác giả đã giúp 1 phần vào tổng thể bài này.
 
-
-## Thành viên:
-1. Nguyễn Quốc Đạt 20231570 (Trưởng nhóm)
-2. Trần Đình Tùng 20231646
-3. Nguyễn Ngọc Hải 20231588
-4. Trịnh Gia Hưng 20239646
-
-## Project
-Phân công công việc:
-Chia ra thành 2 team nhỏ:
-1. Team 3D:
-- Hải: Xử lý convert maps từ file game về file 3D và texture.
-- Hưng: Tạo thêm path racing line, setup onboards camera và animation cho model xe.
-
-2. Team 3JS:
-- Tùng: Setup camera, môi trường, lighting.
-- Đạt: Hoàn thiện các chức năng và kết nối các camera, setup public lên main web
 ## Nguồn Asset sử dụng:
 - 2020 Vinfast Vietnam GP by [LFT Tracks](https://www.facebook.com/LFTTracks), AIW & GDB done by Marco Dakic. Free to use under [guide](https://www.facebook.com/share/p/1M2Jwk5oF5/). All rights reserved.
 - All the cars models by [Redgrund](https://sketchfab.com/redgrund) is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
